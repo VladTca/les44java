@@ -1,30 +1,29 @@
 // File location: src/test/java/MainTest.java
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 class MainTest {
+    private List<Auto> list;
+    @BeforeEach
+    void getAutos() {
+        list = new ArrayList<>();
+        list.add(new Auto("1xxx", "BMW", 2020, 510000.0));
+        list.add(new Auto("ad2xxx", "KIA", 2021, 20000.0));
+        list.add(new Auto("fgn3xxx", "TOYOTA", 2022, 300000.0));
+        list.add(new Auto("bncv4xxx", "NISSAN", 2023, 8400000.0));
+    }
 
     @Test
     @DisplayName("Test sorting by id")
     void testSortingById() {
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-        List<Auto> list = List.of(
-                new Auto("1xxx", "BMW", 2020, 510000.0),
-                new Auto("ad2xxx", "KIA", 2021, 20000.0),
-                new Auto("fgn3xxx", "TOYOTA", 2022, 300000.0),
-                new Auto("bncv4xxx", "NISSAN", 2023, 8400000.0)
-
-        );
         List<Auto> expected = List.of(
                 new Auto("1xxx", "BMW", 2020, 510000.0),
                 new Auto("ad2xxx", "KIA", 2021, 20000.0),
@@ -43,12 +42,7 @@ class MainTest {
     @Test
     @DisplayName("Test sorting by price")
     void testSortingByPrice() {
-        List<Auto> list = List.of(
-                new Auto("1xxx", "BMW", 2020, 510000.0),
-                new Auto("ad2xxx", "KIA", 2021, 20000.0),
-                new Auto("fgn3xxx", "TOYOTA", 2022, 300000.0),
-                new Auto("bncv4xxx", "NISSAN", 2023, 8400000.0)
-        );
+
         List<Auto> expected = List.of(
                 new Auto("ad2xxx", "KIA", 2021, 20000.0),
                 new Auto("fgn3xxx", "TOYOTA", 2022, 300000.0),
@@ -65,12 +59,7 @@ class MainTest {
     @Test
     @DisplayName("Test sorting by brand")
     void testSortingByBrand() {
-        List<Auto> list = List.of(
-                new Auto("1xxx", "BMW", 2020, 510000.0),
-                new Auto("ad2xxx", "KIA", 2021, 20000.0),
-                new Auto("fgn3xxx", "TOYOTA", 2022, 300000.0),
-                new Auto("bncv4xxx", "NISSAN", 2023, 8400000.0)
-        );
+
         List<Auto> expected = List.of(
                 new Auto("1xxx", "BMW", 2020, 510000.0),
                 new Auto("ad2xxx", "KIA", 2021, 20000.0),
@@ -92,12 +81,7 @@ class MainTest {
     @Test
     @DisplayName("Test sorting by year")
     void testSortingByYear() {
-        List<Auto> list = List.of(
-                new Auto("1xxx", "BMW", 2020, 510000.0),
-                new Auto("ad2xxx", "KIA", 2021, 20000.0),
-                new Auto("fgn3xxx", "TOYOTA", 2022, 300000.0),
-                new Auto("bncv4xxx", "NISSAN", 2023, 8400000.0)
-        );
+
         List<Auto> expected = List.of(
                 new Auto("1xxx", "BMW", 2020, 510000.0),
                 new Auto("ad2xxx", "KIA", 2021, 20000.0),
